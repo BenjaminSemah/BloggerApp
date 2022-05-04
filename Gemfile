@@ -72,3 +72,19 @@ group :test do
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'database_cleaner-active_record'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+end
+
+group :development, :test do
+  gem 'factory_bot_rails'
+end
