@@ -1,5 +1,3 @@
-# rubocop:disable Style/FrozenStringLiteralComment
-
 require 'test_helper'
 
 module ApplicationCable
@@ -13,5 +11,3 @@ module ApplicationCable
     # end
   end
 end
-
-# rubocop:enable Style/FrozenStringLiteralComment
