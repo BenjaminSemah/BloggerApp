@@ -1,4 +1,3 @@
-# rubocop:disable Style/FrozenStringLiteralComment
 # app/view/posts
 class PostsController < ApplicationController
   def index
@@ -9,4 +8,3 @@ class PostsController < ApplicationController
     render 'show'
   end
 end
-# rubocop:enable Style/FrozenStringLiteralComment
