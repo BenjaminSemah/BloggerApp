@@ -1,11 +1,14 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+require_relative 'boot'
+
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# rubocop:disable Style/Documentation
 module BloggerApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -20,3 +23,4 @@ module BloggerApp
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+# rubocop:enable Style/Documentation
