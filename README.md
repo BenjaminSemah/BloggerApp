@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Rails-BloggerApp-brown)
 
-# Blog App
+# Blogger App
 
 > The BloggerApp is a classic example of a blog website. I created a fully functional website that shows the list of posts and empowers readers to interact with them by adding comments and liking favorite posts.
 
