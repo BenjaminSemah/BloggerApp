@@ -19,11 +19,11 @@ body {
   width: 50%
 }
 
-.all--bloggers {
+.page--header {
   text-align: center;
 }
 
-.bloggers--list {
+.users--list {
   list-style: none;
   padding-inline-start: 0;
   margin-block-start: 0;
@@ -32,7 +32,7 @@ body {
   flex-direction: column;
 }
 
-.blogger--item {
+.user--item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@ body {
   padding: 10px 20px;
 }
 
-.blogger--name,
+.user--name,
 .posts--number {
   margin: 0;
 }

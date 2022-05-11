@@ -1,13 +1,7 @@
-<h1 class="all--bloggers">ALL BLOGGERS</h1>
+<h1 class="page--header">ALL USERS</h1>
 
-<ul class="bloggers--list">
-  <% @all_users.each do |blogger| %>
-    <li class="blogger--item">
-      <img src="<%= blogger.photo %>" alt="Blogger" class="details-box" >
-      <div class="name--posts">
-        <h3 class="blogger--name"><%= blogger.name %></h3>
-          <p class="posts--number">Number of Posts: <%= blogger.posts_counter || 0 %></p>
-      </div>
-    </li>
+<ul class="users--list">
+  <% @all_users.each do |user| %>
+    <%= render partial: "shared/user", locals: {user: user} %>
   <% end %>
 </ul>
