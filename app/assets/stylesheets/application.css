@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0 auto;
+  width: 50%
+}
+
+.all--bloggers {
+  text-align: center;
+}
+
+.bloggers--list {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.blogger--item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.name--posts {
+  border: 2px solid gray;
+  padding: 10px 20px;
+}
+
+.blogger--name,
+.posts--number {
+  margin: 0;
+}

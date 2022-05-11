@@ -1,2 +1,13 @@
-<h1>This page will display ALL USERS</h1>
-<p>still under construction...</p>
+<h1 class="all--bloggers">ALL BLOGGERS</h1>
+
+<ul class="bloggers--list">
+  <% @all_users.each do |blogger| %>
+    <li class="blogger--item">
+      <img src="<%= blogger.photo %>" alt="Blogger" class="details-box" >
+      <div class="name--posts">
+        <h3 class="blogger--name"><%= blogger.name %></h3>
+          <p class="posts--number">Number of Posts: <%= blogger.posts_counter || 0 %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
