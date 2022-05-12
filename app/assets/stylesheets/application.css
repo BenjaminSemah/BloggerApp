@@ -23,7 +23,8 @@ body {
   text-align: center;
 }
 
-.users--list {
+.users--list,
+.posts--list {
   list-style: none;
   padding-inline-start: 0;
   margin-block-start: 0;
@@ -45,7 +46,26 @@ body {
   padding: 10px 20px;
 }
 
+.user--bio,
+.post--brief {
+  border: 2px solid gray;
+  padding: 10px 10px;
+  margin-bottom: 5px;
+}
+
+.comments_div {
+  border: 2px solid gray;
+  padding: 10px 10px;
+  margin-bottom: 25px;
+}
+
 .user--name,
-.posts--number {
+.posts--number,
+.bio--header,
+.bio--text {
   margin: 0;
+}
+
+.comments--likes {
+  justify-items: flex-end;
 }

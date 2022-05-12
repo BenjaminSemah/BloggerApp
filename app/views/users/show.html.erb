@@ -2,6 +2,14 @@
 
 <%= render partial: "shared/user", locals: {user: @user} %>
 <div class="user--bio">
-  <p>Bio</p>
+  <p class="bio--header">Bio</p>
+  <p class="bio--text"><%= @user.bio %></p>
 </div>
 
+<ul class="posts--list">
+  <% @user.recent_posts.each do |post| %>
+    <%= render partial: "shared/post", locals: {post: post} %>
+  <% end %>
+</ul>
+
+<span class=""><%= link_to "See all posts" %></span>
