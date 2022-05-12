@@ -1,2 +1,7 @@
-<h1>This page will display ALL USERS</h1>
-<p>still under construction...</p>
+<h1 class="page--header">ALL USERS</h1>
+
+<ul class="users--list">
+  <% @all_users.each do |user| %>
+    <%= render partial: "shared/user", locals: {user: user} %>
+  <% end %>
+</ul>

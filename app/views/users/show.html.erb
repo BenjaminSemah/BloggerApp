@@ -1,2 +1,15 @@
-<h1>This page will display a SINGLE USER</h1>
-<p>still under construction...</p>
+<h1 class="page--header">SINGLE USER</h1>
+
+<%= render partial: "shared/user", locals: {user: @user} %>
+<div class="user--bio">
+  <p class="bio--header">Bio</p>
+  <p class="bio--text"><%= @user.bio %></p>
+</div>
+
+<ul class="posts--list">
+  <% @user.recent_posts.each do |post| %>
+    <%= render partial: "shared/post", locals: {post: post} %>
+  <% end %>
+</ul>
+
+<span class=""><%= link_to "See all posts" %></span>

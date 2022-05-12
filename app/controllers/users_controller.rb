@@ -1,10 +1,10 @@
 # app/view/users
 class UsersController < ApplicationController
   def index
-    render 'index'
+    @all_users = User.all
   end
 
   def show
-    render 'show'
+    @user = User.find_by(id: params[:id])
   end
 end
