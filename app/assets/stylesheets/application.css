@@ -16,11 +16,16 @@
 
 body {
   margin: 0 auto;
-  width: 50%
+  width: 70%
 }
 
 .page--header {
   text-align: center;
+}
+
+.user--photo {
+  height: 100px;
+  width: 100px;
 }
 
 .users--list,

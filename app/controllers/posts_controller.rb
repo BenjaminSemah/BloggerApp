@@ -1,11 +1,5 @@
 # app/view/posts
 class PostsController < ApplicationController
-  # def index
-  #   @all_posts = User.find_by(id: params[:user_id]).posts
-  #   @user = User.find_by(id: params[:user_id])
-  #   @comments = Comment.where(post_id: @post.id)
-  # end
-
   def index
     @user = User.find_by(id: params[:user_id])
     @all_posts = @user.posts

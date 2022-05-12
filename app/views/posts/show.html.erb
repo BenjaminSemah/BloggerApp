@@ -1,4 +1,20 @@
 <h1>Display SINGLE POST for a user</h1>
 <p>Still under construction...</p>
 
-<h2><%= @post.title %></h2>
+<div class="full--post">
+  <div class="post--details">
+    <div class="post--stats">
+      <p>Post <%= @post.id %> by <%= @post.author.name %></p>
+      <p>Comments: <%= @post.comments_counter %></p>
+      <p>Likes: <%= @post.likes_counter %></p>
+    </div>
+    <p><%= @post.text %></p>
+  </div>
+  <div class="post--comments">
+  <div class="comments_div">
+  <% @post.comments.each do |comment| %>
+    <p><%= comment.author.name %>: <%= comment.text %><br></p>
+  <% end %>
+</div>
+  </div>
+</div>
