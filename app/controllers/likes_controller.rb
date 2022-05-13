@@ -23,4 +23,3 @@ class LikesController < ApplicationController
     params.fetch(:like, {}).permit(:author_id, :post_id)
   end
 end
-
