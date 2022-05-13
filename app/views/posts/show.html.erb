@@ -1,5 +1,4 @@
-<h1>Display SINGLE POST for a user</h1>
-<p>Still under construction...</p>
+<h2>Display SINGLE POST for a user</h2>
 
 <div class="full--post">
   <div class="post--details">
@@ -10,11 +9,27 @@
     </div>
     <p><%= @post.text %></p>
   </div>
+
+  <div class="new--commentlike">
+    <% # Add New Comment %>
+    <%= form_with url: "/posts/#{@post.id}/comments", scope: :comment do |form| %>
+    <div>
+      <%= form.text_area :text, required: true %>
+    </div>
+    <%= form.submit "Add Comment"%>
+    <% end %>
+
+    <% # Add Like to Post %>
+    <%= form_with scope: :like, url: "/posts/#{@post.id}/likes", method: :post do |form| %>
+      <%= form.submit "Like Post" %>
+    <% end %>
+  </div>
+
   <div class="post--comments">
-  <div class="comments_div">
-  <% @post.comments.each do |comment| %>
-    <p><%= comment.author.name %>: <%= comment.text %><br></p>
-  <% end %>
-</div>
+    <div class="comments_div">
+      <% @post.comments.each do |comment| %>
+        <p><%= comment.author.name %>: <%= comment.text %><br></p>
+      <% end %>
+    </div>
   </div>
 </div>
