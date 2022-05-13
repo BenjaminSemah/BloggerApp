@@ -10,11 +10,22 @@
     </div>
     <p><%= @post.text %></p>
   </div>
+
+  <div class="new--commentlike">
+    <% # Add New Comment %>
+    <%= form_with url: "/posts/#{@post.id}/comments", scope: :comment do |form| %>
+    <div>
+      <%= form.text_area :text, required: true %>
+    </div>
+    <%= form.submit "Add Comment"%>
+    <% end %>
+  </div>
+
   <div class="post--comments">
-  <div class="comments_div">
-  <% @post.comments.each do |comment| %>
-    <p><%= comment.author.name %>: <%= comment.text %><br></p>
-  <% end %>
-</div>
+    <div class="comments_div">
+      <% @post.comments.each do |comment| %>
+        <p><%= comment.author.name %>: <%= comment.text %><br></p>
+      <% end %>
+    </div>
   </div>
 </div>
