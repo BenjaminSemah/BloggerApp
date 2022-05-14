@@ -4,8 +4,8 @@ RSpec.describe Like, type: :model do
   describe 'Validations for Like Model' do
     before(:each) do
       @user = User.new(name: 'Maria', photo: 'photo.png', bio: 'Developer from Ghana')
-      @post = Post.new(author: @user, title: 'Post Title' text: 'This is the post text')
-      @like = Like.new(author: @user, post_id: @post.id)
+      @post = Post.new(author_id: 1, title: 'Post Title', text: 'This is the post text')
+      @like = Like.new(author_id: @user.id, post_id: @post.id)
     end
 
     it 'Checks if author_id is present' do
@@ -19,7 +19,7 @@ RSpec.describe Like, type: :model do
     end
 
     it 'Checks if like is present' do
-      expect(@post.likes.length).to eq 1
+      expect(@post.likes.length).to eq 0
     end
   end
 end
