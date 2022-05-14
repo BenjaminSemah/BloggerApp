@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'All Posts', type: :request do
   describe 'GET posts#index' do
     before :each do
-      get '/users/1/posts'
+      user = User.create(name: 'Maria', bio: 'Developer from Ghana', photo: 'photo.png')
+      get user_posts_path(user_id: user.id)
     end
 
     it 'checks if response status was correct' do
@@ -15,15 +16,16 @@ RSpec.describe 'All Posts', type: :request do
     end
 
     it 'checks if response includes placeholder' do
-      expect(response.body).to include('Display ALL POSTS for a user')
+      expect(response.body).to include('ALL POSTS for User')
     end
   end
 end
 
-RSpec.describe 'Singe Post', type: :request do
+RSpec.describe 'Single Post', type: :request do
   describe 'GET posts#show' do
     before :each do
-      get '/users/29/posts/29'
+      user = User.create(name: 'Maria', bio: 'Developer from Ghana', photo: 'photo.png')
+      get user_posts_path(user_id: user.id)
     end
 
     it 'checks if response status was correct' do

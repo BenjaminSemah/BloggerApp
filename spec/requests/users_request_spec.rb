@@ -23,7 +23,8 @@ end
 RSpec.describe 'Single Users', type: :request do
   describe 'GET users#show' do
     before :each do
-      get user_path(id: 29)
+      user = User.create(name: 'Maria', bio: 'Developer from Ghana', photo: 'photo.png')
+      get user_path(id: user.id)
     end
 
     it 'checks if response status was correct' do
@@ -35,7 +36,7 @@ RSpec.describe 'Single Users', type: :request do
     end
 
     it 'checks if response body includes placeholder' do
-      expect(response.body).to include('This page will display a SINGLE USER')
+      expect(response.body).to include('SINGLE USER PAGE')
     end
   end
 end
