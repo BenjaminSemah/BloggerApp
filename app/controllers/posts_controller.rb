@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find_by(id: params[:user_id])
-    @all_posts = @user.posts.includes(:comments)
   end
 
   def show
@@ -17,14 +16,20 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.author_id = current_user.id
+    @user = User.find(params[:user_id])
+    @post = @user.posts.new(
+      title: post_params[:title],
+      text: post_params[:text],
+      author_id: post_params[:user_id],
+      comments_counter: 0,
+      likes_counter: 0
+    )
 
     if @post.save
       redirect_to user_path(current_user.id)
-      flash[:notice] = 'Your post has been created successfully.'
+      flash[:notice] = 'You post was successfully created'
     else
-      render :new, alert: 'Error. Post was not created. Try again.'
+      render :new, alert: 'An error has occurred while creating the post'
     end
   end
 
