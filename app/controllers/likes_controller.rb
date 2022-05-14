@@ -12,8 +12,9 @@ class LikesController < ApplicationController
 
     if @like.save
       redirect_to user_post_path(current_user.id, Post.find(params[:post_id]))
+      flash[:notice] = 'You have successfully liked the post'
     else
-      render new
+      render new, alert: 'Error. Like was unsuccessful. Try again.'
     end
   end
 
