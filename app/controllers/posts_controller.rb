@@ -22,8 +22,9 @@ class PostsController < ApplicationController
 
     if @post.save
       redirect_to user_path(current_user.id)
+      flash[:notice] = 'Your post has been created successfully.'
     else
-      render :new
+      render :new, alert: 'Error. Post was not created. Try again.'
     end
   end
 
