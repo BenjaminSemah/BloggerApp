@@ -6,8 +6,8 @@
   <% @all_posts.each do |post| %>
     <%= render partial: "shared/post", locals: {post: post} %>
     <div class="comments_div">
-      <% post.recent_comments.includes(:author).each do |comment| %>
-        <p><%= comment.author.name %>: <%= comment.text %><br></p>
+      <% post.recent_comments.includes(:user).each do |comment| %>
+        <p><%= comment.user.name %>: <%= comment.text %><br></p>
       <% end %>
     </div>
   <% end %>
