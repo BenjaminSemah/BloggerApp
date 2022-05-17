@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BloggerApp</title>
+    <title>RailsBlogApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
+   <%= render 'devise/shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    
-    <div>
-      <%= link_to("All Users", users_path)%>
-      <%= link_to("New post", new_post_path)%>
-    </div>
 
-    <% flash.each do |name, msg| -%>
-      <p class='flash--msg'><%= msg %></p>
-    <% end -%>
+    <div>
+      <% flash.each do |name, msg| -%>
+        <p class="field"><%= msg %></p>
+      <% end -%>
+
+
+    </div>
 
     <%= yield %>
   </body>
 </html>
+  
