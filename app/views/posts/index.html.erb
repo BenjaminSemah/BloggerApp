@@ -10,6 +10,9 @@
         <p><%= comment.user.name %>: <%= comment.text %><br></p>
       <% end %>
     </div>
+    <% if can? :destroy, post %>
+      <%= button_to "Delete Post", post_path(post.id), method: :delete %>
+    <% end %>
   <% end %>
 </ul>
 

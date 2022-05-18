@@ -19,16 +19,24 @@
     <%= form.submit "Add Comment"%>
     <% end %>
 
-    <% # Add Like to Post %>
+    <% # Like a Post %>
     <%= form_with scope: :like, url: "/posts/#{@post.id}/likes", method: :post do |form| %>
       <%= form.submit "Like Post" %>
     <% end %>
   </div>
 
+  <!-- # Delete a Post -->
+  <% if can? :destroy, @post %>
+    <%= button_to "Delete Post", post_path(@post.id), method: :delete %>
+  <% end %>
+
   <div class="post--comments">
     <div class="comments_div">
       <% @post.comments.includes(:user).each do |comment| %>
         <p><%= comment.user.name %>: <%= comment.text %><br></p>
+       <% if can? :destroy, comment %>
+          <%= button_to "Delete Comment", post_comment_path(@post.id, comment.id), method: :delete %>
+        <% end %>
       <% end %>
     </div>
   </div>
