@@ -6,7 +6,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id] || current_user.id)
   end
 
-
   def index
     @all_posts = find_user.posts.includes(:comments)
   end
@@ -46,14 +45,13 @@ class PostsController < ApplicationController
 
     if @post.destroy
       @post.update_posts_counter(@post.user_id)
-      redirect_to users_path, status:303
+      redirect_to users_path, status: 303
       flash[:success] = 'Post has been deleted successfully'
     else
-      redirect_to users_path, status:303
+      redirect_to users_path, status: 303
       flash.now[:error] = 'An error occured. Try again.'
     end
   end
-
 
   private
 

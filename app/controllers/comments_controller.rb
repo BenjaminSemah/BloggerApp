@@ -23,10 +23,10 @@ class CommentsController < ApplicationController
     @comment.destroy
     if @comment.destroy
       @comment.update_comments_counter(@comment.post_id)
-      redirect_to user_posts_path(@comment.user_id), status:303
+      redirect_to user_posts_path(@comment.user_id), status: 303
       flash[:success] = 'Comment has been deleted successfully.'
     else
-      redirect_to user_posts_path(@comment.user_id), status:303
+      redirect_to user_posts_path(@comment.user_id), status: 303
       flash.now[:error] = 'An error occured. Try again.'
     end
   end
