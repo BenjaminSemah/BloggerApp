@@ -34,6 +34,9 @@
     <div class="comments_div">
       <% @post.comments.includes(:user).each do |comment| %>
         <p><%= comment.user.name %>: <%= comment.text %><br></p>
+       <% if can? :destroy, comment %>
+          <%= button_to "Delete Comment", post_comment_path(@post.id, comment.id), method: :delete %>
+        <% end %>
       <% end %>
     </div>
   </div>
