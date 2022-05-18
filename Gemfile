@@ -96,3 +96,5 @@ gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
 gem 'bullet', '~> 7.0', '>= 7.0.1'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
+
+gem 'cancancan', '~> 3.3'
