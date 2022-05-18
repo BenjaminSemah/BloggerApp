@@ -19,11 +19,14 @@
     <%= form.submit "Add Comment"%>
     <% end %>
 
-    <% # Add Like to Post %>
+    <% # Like a Post %>
     <%= form_with scope: :like, url: "/posts/#{@post.id}/likes", method: :post do |form| %>
       <%= form.submit "Like Post" %>
     <% end %>
   </div>
+
+  <!-- # Delete a Post -->
+  <%= button_to "Delete Post", post_path(@post.id), method: :delete %>
 
   <div class="post--comments">
     <div class="comments_div">

@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :delete_all
+  has_many :likes, dependent: :delete_all
 
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter, :likes_counter, presence: true,
@@ -11,11 +11,9 @@ class Post < ApplicationRecord
     comments.order('created_at Desc').limit(5)
   end
 
-  after_save :update_posts_counter
-
-  private
-
-  def update_posts_counter
-    user.increment!(:posts_counter)
+  def update_posts_counter(id)
+    counts = Post.where(user_id: id).count
+    user = User.find(id)
+    user.update(posts_counter: counts)
   end
 end

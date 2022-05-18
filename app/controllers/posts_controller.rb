@@ -3,8 +3,9 @@ class PostsController < ApplicationController
   before_action :current_user, only: [:create]
 
   def find_user
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find(params[:user_id] || current_user.id)
   end
+
 
   def index
     @all_posts = find_user.posts.includes(:comments)
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
     )
 
     if @post.save
+      @post.update_posts_counter(params[:user_id])
       redirect_to user_path(current_user.id)
       flash[:notice] = 'You post was successfully created'
     else
@@ -40,14 +42,18 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @post.destroy
 
     if @post.destroy
-      redirect_to user_path(current_user.id)
-      flash[:notice] = 'You post was successfully deleted'
+      @post.update_posts_counter(@post.user_id)
+      redirect_to users_path, status:303
+      flash[:success] = 'Post has been deleted successfully'
     else
-      render :new, alert: 'An error occurred while deleting the post. Try again.'
+      redirect_to users_path, status:303
+      flash.now[:error] = 'An error occured. Try again.'
     end
   end
+
 
   private
 
