@@ -3,16 +3,16 @@ require 'rails_helper'
 RSpec.describe 'user_show_path', type: :feature do
   describe 'User show page' do
     before(:each) do
-      @first_user = User.create(name: 'Victor', photo: 'link', bio: 'bio', posts_counter: 4,
-                                email: 'victor@gmail', password: '123456', password_confirmation: '123456')
-      @second_user = User.create(name: 'Bad', photo: 'link', bio: 'bio', posts_counter: 0,
-                                 email: 'devi@gmail', password: '123456', password_confirmation: '123456')
-      @third_user = User.create(name: 'Bade', photo: 'link', bio: 'bio', posts_counter: 0,
-                                email: 'devii@gmail', password: '123456', password_confirmation: '123456')
+      @first_user = User.create(name: 'Benjamin', photo: 'url', bio: 'bio', posts_counter: 4,
+                                email: 'benjamin@mail', password: 'password', password_confirmation: 'password')
+      @second_user = User.create(name: 'Mphatso', photo: 'url', bio: 'bio', posts_counter: 0,
+                                 email: 'mphatso@mail', password: 'password', password_confirmation: 'password')
+      @third_user = User.create(name: 'Developer', photo: 'url', bio: 'bio', posts_counter: 0,
+                                email: 'developer@mail', password: 'password', password_confirmation: 'password')
 
       visit('users/sign_in')
-      fill_in 'Email', with: 'victor@gmail'
-      fill_in 'Password', with: '123456'
+      fill_in 'Email', with: 'benjamin@mail'
+      fill_in 'Password', with: 'password'
       click_button 'Log in'
 
       @first_post = Post.create(user: @first_user, title: 'Number One', text: 'This is my first post')
@@ -25,12 +25,12 @@ RSpec.describe 'user_show_path', type: :feature do
 
     it 'Check for user profile picture' do
       all('img').each do |i|
-        expect(i[:src]).to eq('link')
+        expect(i[:src]).to eq('url')
       end
     end
 
     it 'displays username' do
-      expect(page).to have_content('Victor')
+      expect(page).to have_content('Benjamin')
     end
 
     it 'displays number of posts by user' do
@@ -40,11 +40,6 @@ RSpec.describe 'user_show_path', type: :feature do
     it 'displays user bio' do
       expect(page).to have_content('bio')
     end
-
-    # it 'displays posts' do
-    #   expect(page).to have_content('Number Two')
-    # end
-
 
     it 'displys profile picture of each user' do
       @first_user.recent_posts.each do |post|
