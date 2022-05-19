@@ -1,8 +1,6 @@
 <li class="post--brief">
   <h3>
-    <a href="<%= user_post_path(post.user.id, post.id)%>">
-      <%= post.title %>
-    </a>
+    <%= link_to post.title, user_post_path(post.user.id, post.id) %>
   </h3>
   <p class="post--text"> <%= post.text %> </p>
   <span class="comments--likes">
