@@ -1,6 +1,3 @@
-# rubocop:disable Style/FrozenStringLiteralComment
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -29,4 +26,3 @@ class Ability
     end
   end
 end
-# rubocop:enable Style/FrozenStringLiteralComment
