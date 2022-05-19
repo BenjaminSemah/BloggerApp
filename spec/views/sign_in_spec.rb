@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'Logins', type: :feature do
   background { visit new_user_session_path }
 
@@ -40,7 +41,8 @@ RSpec.feature 'Logins', type: :feature do
     end
 
     scenario 'Submitting form with the correct email and password' do
-      @user = User.create(name: 'mphatso', email: 'mphatso@mail.com', password: 'password', bio: 'love', photo: 'url', posts_counter: 0)
+      @user = User.create(name: 'mphatso', email: 'mphatso@mail.com', password: 'password', bio: 'love', photo: 'url',
+                          posts_counter: 0)
       visit new_user_session_path
       fill_in 'Email', with: @user.email
       fill_in 'Password', with: @user.password
@@ -49,3 +51,4 @@ RSpec.feature 'Logins', type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
