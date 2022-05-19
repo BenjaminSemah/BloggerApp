@@ -19,4 +19,6 @@
   <% end %>
 </ul>
 
-<span class=""><%= link_to "See all posts" %></span>
+<a href="<%= user_posts_path(@user)%>">
+  <button class="">See all posts</button>
+</a>

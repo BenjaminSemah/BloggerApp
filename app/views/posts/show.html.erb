@@ -3,7 +3,7 @@
 <div class="full--post">
   <div class="post--details">
     <div class="post--stats">
-      <p>Post <%= @post.id %> by <%= @post.user.name %></p>
+      <p><%= @post.title %> by <%= @post.user.name %></p>
       <p>Comments: <%= @post.comments_counter %></p>
       <p>Likes: <%= @post.likes_counter %></p>
     </div>
