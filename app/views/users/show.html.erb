@@ -1,4 +1,4 @@
-<h1 class="page--header"><%= @user.name %> Posts</h1>
+<h1 class="page--header"><%= @user.name %>'s Posts</h1>
 
 <li class="user--item">
   <img src="<%= @user.photo %>" alt="user" class="user--photo" >
@@ -19,4 +19,6 @@
   <% end %>
 </ul>
 
-<span class=""><%= link_to "See all posts" %></span>
+<a href="<%= user_posts_path(@user)%>">
+  <button class="">See all posts</button>
+</a>

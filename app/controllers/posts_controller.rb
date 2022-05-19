@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @all_posts = find_user.posts.includes(:comments)
+    @all_posts = find_user.posts
   end
 
   def show

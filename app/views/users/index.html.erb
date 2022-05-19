@@ -6,7 +6,7 @@
     <li class="user--item">
       <img src="<%= user.photo %>" alt="user" class="user--photo" >
       <div class="name--posts">
-        <h3 class="user--name"><%= user.name %></h3>
+        <h3><%= link_to user.name, user_path(user.id) %></h3>
         <p class="posts--number">Number of Posts: <%= user.posts_counter || 0 %></p>
       </div>
     </li>
