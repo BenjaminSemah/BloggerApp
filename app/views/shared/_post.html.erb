@@ -1,7 +1,7 @@
 <li class="post--brief">
-  <h3>
+
     <%= link_to post.title, user_post_path(post.user.id, post.id) %>
-  </h3>
+
   <p class="post--text"> <%= post.text %> </p>
   <span class="comments--likes">
     Comments: <%= post.comments_counter || 0 %> ,
