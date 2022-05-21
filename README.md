@@ -3,6 +3,7 @@
 # Blogger App
 
 > The BloggerApp is a classic example of a blog website. I created a fully functional website that shows the list of posts and empowers readers to interact with them by adding comments and liking favorite posts.
+> The app has an API that can be linked to other apps
 
 ## Built With
 
